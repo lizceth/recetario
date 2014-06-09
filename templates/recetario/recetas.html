@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recetas registradas</title> 
+    <style type="text/css">
+        img { width:100px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nuestras recetas</h1>
+    </header>
+    <section>
+        <a href="/receta/nueva">Agregar una receta</a>
+
+        <ul>
+            {% for receta in recetas %}
+            <li>
+                <a href="{% url 'recetario.views.detalle_receta' receta.id %}">{{receta.titulo}}</a>
+                <img src="{{MEDIA_URL}}{{receta.imagen}}">
+            </li>
+            {% empty %}
+            <li>Aún no hay recetas registradas</li>
+            {% endfor %}
+        </ul>
+
+    </section>
+
+    
+</body>
+</html>

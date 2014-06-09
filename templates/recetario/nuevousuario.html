@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Usuario</title>
+</head>
+<body>
+    <header>
+        <h1>Registro de nuevo usuario</h1>
+    </header> 
+    <section>
+        <form id='formulario' method="POST">{% csrf_token %}
+            <table cellspacing="0">{{formulario}}</table>
+            <p><input type="submit" value="Registrar"/></p>
+        </form>
+    </section>
+</body>
+</html>

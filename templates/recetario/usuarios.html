@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuarios registrados</title>
+</head>
+<body>
+    <section>
+        <ul>
+            {% for usuario in usuarios %}
+            <li>{{usuario.username}} - <strong>{{usuario.email}}</strong>
+                <ul>
+                    {% for receta in recetas %}
+                        {% if receta.usuario == usuario %}
+                            <li>{{receta}}</li>
+                            {% endif %}
+                    {% empty %}
+                    <li>Este usuario aún no ha registado recetas.</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% empty %}
+            <li>No hay usuarios registrados, aún.</li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>

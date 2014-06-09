@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body> 
+    <header>
+        <h1>Recetario:</h1>
+    </header>
+    <section>
+        <p>
+            Actualmente tenemos registradas:
+            {{total}} receta{{total|pluralize}}
+        </p>
+
+        <ul>
+            {% for receta in recetas %}
+            <li class="{% cycle 'impar' 'par' %}">{{receta.titulo|title}}</li>
+            {% empty %}
+            <li>No hay recetas registradas aún.</li>
+            {% endfor %}
+        </ul>
+    </section>
+    
+</body>
+</html>

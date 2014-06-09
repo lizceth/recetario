@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingresa al sistema</title>
+</head>
+<body>
+    <header>
+        <h1>Ingresa</h1>
+    </header>
+    <form id=formulario  method="post"> {% csrf_token %}
+        <table cellspacing="0">{{formulario}}</table>
+        <p><input type='submit' value='ingresar'/></p>
+    </form>
+</body>
+</html>

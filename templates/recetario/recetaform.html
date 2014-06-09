@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Receta</title>
+</head>
+<body>
+    <header>
+        <h1>Comparte una nueva receta</h1>
+    </header>
+    <section>
+        <form id='formulario'  method="post" enctype='multipart/form-data'>{% csrf_token %}
+            {{formulario.as_p}}
+            <p><input type='submit' value='Registrar'/></p>
+        </form>
+    </section>
+    
+</body>
+</html>
