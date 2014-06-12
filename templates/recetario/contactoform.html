@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contáctanos</title>
+</head>
+<body>
+    <header>
+        <h1>Comunícate con nosotros</h1>
+    </header>
+    <section>
+        <form id='formulario' action="" method="post"> {% csrf_token %}
+            {{formulario.as_p}}
+            <p>
+                <input type="submit" name="" value="Confirmar">
+            </p>
+        </form>
+    
+    </section>
+    
+</body>
+
+</html>

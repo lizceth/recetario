@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^usuarios/$', 'recetario.views.usuarios', name='usuarios'),
     url(r'^sobre/$', 'recetario.views.sobre', name='sobre'),
     url(r'^receta/(?P<id_receta>\d+)$', 'recetario.views.detalle_receta', name='detalle_receta'),
+    url(r'^contacto/$','recetario.views.contacto'),
     url(r'^recetas/$', 'recetario.views.lista_recetas', name='lista_recetas'),
     url(r'^receta/nueva/$', 'recetario.views.nueva_receta', name='nueva_receta'),
     url(r'^comenta/$', 'recetario.views.nuevo_comentario', name='nuevo_comentario'),
@@ -22,6 +23,7 @@ urlpatterns = patterns('',
     url(r'^ingresar/$', 'recetario.views.ingresar', name='ingresar'),
     url(r'^privado/$', 'recetario.views.privado', name='privado'),
     url(r'^cerrar/$', 'recetario.views.cerrar', name='cerrar'),
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'accounts/login.html'}),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

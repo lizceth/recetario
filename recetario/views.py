@@ -1,14 +1,14 @@
-from django.shortcuts import render, get_object_or_404, render_to_response
 from recetario.models import Receta, Comentario
+from recetario.forms import RecetaForm, ComentarioForm, ContactoForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, render_to_response
 from django.template import RequestContext
-
-from recetario.forms import RecetaForm, ComentarioForm
+from django.core.mail import EmailMessage
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-# Create your views here.
+
 
 def inicio(request):
     recetas = Receta.objects.all()
@@ -18,7 +18,6 @@ def inicio(request):
 
 def usuarios(request):
     usuarios = User.objects.all()
-
     recetas = Receta.objects.all()
     return render(request, 'recetario/usuarios.html',
                   {'usuarios':usuarios, 'recetas':recetas})
@@ -26,6 +25,22 @@ def usuarios(request):
 def sobre(request):
     html = "<html><body>Proyecto de ejemplo en MDW</body></html>"
     return HttpResponse(html)
+
+def contacto(request):
+    if request.method=='POST':
+        formulario = ContactoForm(request.POST)
+        if formulario.is_valid():
+            titulo = 'Mensaje desde el recetario de Maestros del Web'
+            contenido = formulario.cleaned_data['mensaje'] + "\n"
+            contenido += 'Comunicarse a: ' + formulario.cleaned_data['correo']
+            correo = EmailMessage(titulo, contenido, to=['abel.huanca@upeu.pe'])
+            correo.send()
+            return HttpResponseRedirect('/')
+    else:
+        formulario = ContactoForm()
+    return render_to_response('recetario/contactoform.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
+
 
 def lista_recetas(request):
     recetas = Receta.objects.all()
@@ -78,7 +93,7 @@ def ingresar(request):
         return HttpResponseRedirect('/privado')
     if request.method == 'POST':
         formulario = AuthenticationForm(request.POST)
-        if formulario.is_valid():
+        if formulario.is_valid:
             usuario = request.POST['username']
             clave = request.POST['password']
             acceso = authenticate(username=usuario, password=clave)

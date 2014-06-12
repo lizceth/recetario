@@ -95,3 +95,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 
+#Configuraciones para enviar mensajes usando gmail
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'abel.huanca@upeu.pe'
+EMAIL_HOST_PASSWORD = 'ponga su contrasenia'
+EMAIL_PORT = 587
