@@ -23,8 +23,8 @@ def usuarios(request):
                   {'usuarios':usuarios, 'recetas':recetas})
 
 def sobre(request):
-    html = "<html><body>Proyecto de ejemplo en MDW</body></html>"
-    return HttpResponse(html)
+    titulo='sobre'
+    return render_to_response('recetario/sobre.html', {'titulo':titulo},context_instance=RequestContext(request))
 
 def contacto(request):
     if request.method=='POST':

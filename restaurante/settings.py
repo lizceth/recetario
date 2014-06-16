@@ -82,7 +82,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#archivo estáticos en modo de desarrollo (local)
+#archivo estaticos en modo de desarrollo (local)
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
