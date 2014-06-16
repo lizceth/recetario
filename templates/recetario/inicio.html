@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Inicio</title>
-</head>
-<body> 
+{% extends "base.html" %}
+
+{% block contenido %}
     <header>
         <h1>Recetario:</h1>
     </header>
@@ -22,6 +18,4 @@
             {% endfor %}
         </ul>
     </section>
-    
-</body>
-</html>
+{% endblock %}    

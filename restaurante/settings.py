@@ -82,10 +82,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+#archivo estáticos en modo de desarrollo (local)
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+#carpeta donde collectstatic guarda los archivos estaticos para
+#produccion
+
+STATIC_ROOT = 'assets'
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
